@@ -88,3 +88,7 @@ For JupyterLab and VS Code, go back to the **My Interactive Sessions** tab and c
 - Advanced: [interactive shells with `srun`](advanced/interactive-shell.md) and [batch jobs](advanced/batch-jobs.md)
 
 If a step in this guide does not match what you see, post on the course Ed forum or ask a TF.
+
+## License
+
+The text of this guide and the annotations on its screenshots are licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/); see [LICENSE](LICENSE). The screenshots show software and Harvard marks that belong to their owners and are not covered by this license.
