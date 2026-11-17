@@ -24,7 +24,11 @@ Find the message or situation you see, then follow the steps under it.
 
 **`claude: command not found` (or `codex` or `uv`).** You are on the login node in Academic Shell Access. Follow [Working from a plain terminal](terminal.md): get a compute node with `srun`, then run `~/172566/course-env claude`.
 
-**`error: cannot run ssh: No such file or directory` from Git.** You are in a VS Code terminal, which has no `ssh` program. Run the Git command in a JupyterLab terminal or in Academic Shell Access instead; see [Getting your files onto the cluster](git.md).
+**`error: cannot run ssh: No such file or directory` from Git.** You are in a VS Code terminal, which has no `ssh` program. Either push over HTTPS from VS Code's Source Control panel, or run the Git command in a JupyterLab terminal or in Academic Shell Access; see [Getting your files onto the cluster](git.md).
+
+**`Make sure you configure your "user.name" and "user.email" in git.`** Git needs your name and email before its first commit. See [Tell Git who you are](git.md#tell-git-who-you-are-once).
+
+**`remote: Repository not found.` and `fatal: Authentication failed` when pushing from VS Code.** The repository probably exists; the push was not signed in. This happens when you click **Cancel** on VS Code's GitHub sign-in. Push again and click **Allow**.
 
 **`ModuleNotFoundError: No module named 'numpy'` in a notebook.** The notebook uses the wrong kernel. Open the **Kernel** menu, choose **Change Kernel**, and pick **Python 3 (APMTH 115)**.
 

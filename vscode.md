@@ -2,7 +2,7 @@
 
 The **Code Server - APMTH 115** app runs VS Code, the code editor, in your browser, on a course compute node. It has the course Python, `uv`, and both agents. Claude Code is built into VS Code as a panel, so you can work with it without opening a terminal.
 
-One limit: the VS Code session cannot use Git with an SSH key, because the program Git needs for SSH (`ssh`) is not installed in it. You can still download public repositories over HTTPS. To clone private repositories or push changes with an SSH key, use a JupyterLab terminal or Academic Shell Access; see [Getting your files onto the cluster](git.md).
+Git works in VS Code: its **Source Control** panel commits, and pushes to GitHub over HTTPS after a GitHub sign-in that you repeat in each session ([Committing and pushing in VS Code](git.md#committing-and-pushing-in-vs-code)). What does not work is Git with an SSH key, because the `ssh` program is not installed in the VS Code session; use a JupyterLab terminal or Academic Shell Access for that.
 
 [Back to the quickstart](README.md)
 
