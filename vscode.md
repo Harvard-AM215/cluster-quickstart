@@ -40,7 +40,7 @@ Before Claude Code runs a command, it shows the command under **Allow this bash 
 
 Continue with [step 3 of the quickstart: Sign in to the agent](README.md#3-sign-in-to-the-agent-first-time-only) if the panel asks you to sign in, or go straight to [step 4](README.md#4-ask-the-agent-to-look-before-it-changes-anything).
 
-The OpenAI icon next to the Claude icon opens the Codex panel in the same way. We have not tested it; Codex in a terminal, below, is the route we checked.
+The OpenAI icon next to the Claude icon is Codex's panel. This guide covers Codex in a terminal instead, below.
 
 ## Run an agent in a terminal instead
 
@@ -59,7 +59,7 @@ Replace `your-project-folder` with your folder's name. If you do not have a proj
 
 ![The VS Code terminal panel in the folder am115-agent-demo, with the command claude typed at the prompt.](images/vscode-08-start-claude.png)
 
-Signing in from a terminal follows [step 3 of the quickstart](README.md#3-sign-in-to-the-agent-first-time-only), with one difference for Claude Code. After you choose the login method, VS Code shows a pop-up: **Do you want code-server to open the external website?** Click **Cancel**, and use the link that Claude Code prints in the terminal instead. (The pop-up's link is a different one, and we have not seen it complete a sign-in.)
+Signing in from a terminal follows [step 3 of the quickstart](README.md#3-sign-in-to-the-agent-first-time-only), with one difference for Claude Code. After you choose the login method, VS Code shows a pop-up: **Do you want code-server to open the external website?** Click **Cancel**, and use the link that Claude Code prints in the terminal instead. (The pop-up's link is a different one, and it may not work from your browser.)
 
 ![The pop-up Do you want code-server to open the external website? with its Cancel button boxed.](images/vscode-09-cancel-popup.png)
 

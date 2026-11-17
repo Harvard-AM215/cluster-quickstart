@@ -86,3 +86,5 @@ For JupyterLab and VS Code, go back to the **My Interactive Sessions** tab and c
 - [How many hours and CPUs to ask for](resources.md)
 - [Troubleshooting](troubleshooting.md)
 - Advanced: [interactive shells with `srun`](advanced/interactive-shell.md) and [batch jobs](advanced/batch-jobs.md)
+
+If a step in this guide does not match what you see, post on the course Ed forum or ask a TF.
