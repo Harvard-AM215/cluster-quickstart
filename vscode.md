@@ -1,11 +1,8 @@
-# Using VS Code instead of JupyterLab
+# Working in VS Code
 
-The **Code Server - APMTH 115** app runs VS Code, the code editor, in your browser, on a course compute node. Use it if you prefer VS Code to JupyterLab. It has the same course Python, `uv`, Claude Code and Codex as the JupyterLab session.
+The **Code Server - APMTH 115** app runs VS Code, the code editor, in your browser, on a course compute node. It has the course Python, `uv`, and both agents. Claude Code is built into VS Code as a panel, so you can work with it without opening a terminal.
 
-It differs from JupyterLab in two ways that matter for this guide:
-
-- There are no agent tiles. You start the agent by typing a command in a terminal.
-- The VS Code session cannot use Git with an SSH key, because the program Git needs for SSH (`ssh`) is not installed in it. You can still download public repositories over HTTPS. To push to a private repository with an SSH key, use a JupyterLab terminal or Academic Shell Access instead; see [Getting your files onto the cluster](git.md).
+One limit: the VS Code session cannot use Git with an SSH key, because the program Git needs for SSH (`ssh`) is not installed in it. You can still download public repositories over HTTPS. To clone private repositories or push changes with an SSH key, use a JupyterLab terminal or Academic Shell Access; see [Getting your files onto the cluster](git.md).
 
 [Back to the quickstart](README.md)
 
@@ -15,7 +12,7 @@ On <https://ood.huit.harvard.edu>, open **Interactive Apps** (1) and choose **Co
 
 ![The Interactive Apps menu with Code Server - APMTH 115 boxed.](images/vscode-01-open.png)
 
-The form is the same as the JupyterLab one: hours and CPUs, with defaults of 4 and 2. Click **Launch**.
+The form asks for hours and CPUs, with defaults of 4 and 2 ([more about these numbers](resources.md)). Click **Launch**.
 
 ![The Code Server - APMTH 115 launch form with the Launch button boxed.](images/vscode-02-launch.png)
 
@@ -23,15 +20,35 @@ When the card on **My Interactive Sessions** says **Running**, click **Connect t
 
 ![A running Code Server - APMTH 115 card with the Connect to Code Server button boxed.](images/vscode-03-connect.png)
 
-## Open a terminal
+## Open your project folder
 
-Click the menu button at the top left (1), then **Terminal** (2), then **New Terminal** (3).
+The agent works in the folder VS Code has open, so open your project folder rather than your whole home folder. Click the menu button at the top left (the three lines), choose **File**, then **Open Folder...**, pick your project folder, and click **OK**. The Explorer on the left then shows only that folder's files.
 
-![VS Code's menu open. Box 1 marks the menu button with three lines; box 2 marks Terminal; box 3 marks New Terminal, with the shortcut Ctrl+Shift+C.](images/vscode-04-new-terminal.png)
+## Start Claude Code
 
-## Start the agent
+Click the Claude icon, the orange starburst. It appears in two places: in the bar down the left edge, and at the top right of an open file. Either one opens Claude Code.
 
-The terminal opens in your home folder. Move into your project folder with `cd`, then type `claude` (or `codex`) and press **Enter**:
+![VS Code with model.py open. Boxes mark the Claude icon in the left bar and the Claude icon at the top right of the editor.](images/vscode-04-claude-icons.png)
+
+Claude Code opens as a panel beside your file. Type your request in the box at the bottom, **Ask Claude to edit…**, and press **Enter**. The file you have open is attached to the request, shown under the box.
+
+![The Claude Code panel beside model.py, with the bootstrap prompt typed in the Ask Claude to edit box, which is boxed.](images/vscode-05-claude-panel.png)
+
+Before Claude Code runs a command, it shows the command under **Allow this bash command?** with **Yes** and **No** buttons and a box to tell it what to do instead.
+
+![The Claude Code panel asking Allow this bash command? for a command that prints the current directory and Python details. The Yes, No and Tell Claude what to do instead options are boxed.](images/vscode-06-claude-permission.png)
+
+Continue with [step 3 of the quickstart: Sign in to the agent](README.md#3-sign-in-to-the-agent-first-time-only) if the panel asks you to sign in, or go straight to [step 4](README.md#4-ask-the-agent-to-look-before-it-changes-anything).
+
+The OpenAI icon next to the Claude icon opens the Codex panel in the same way. We have not tested it; Codex in a terminal, below, is the route we checked.
+
+## Run an agent in a terminal instead
+
+You can also run `claude` or `codex` in VS Code's terminal, as in the other apps. Click the menu button at the top left (1), then **Terminal** (2), then **New Terminal** (3).
+
+![VS Code's menu open. Box 1 marks the menu button with three lines; box 2 marks Terminal; box 3 marks New Terminal.](images/vscode-07-new-terminal.png)
+
+The terminal opens in the folder VS Code has open. If that is not your project folder, move into it with `cd`. Then type `claude` (or `codex`) and press **Enter**:
 
 ```bash
 cd ~/your-project-folder
@@ -40,24 +57,16 @@ claude
 
 Replace `your-project-folder` with your folder's name. If you do not have a project folder yet, make one first with `mkdir ~/am115-project` and use that name. If `cd` prints `No such file or directory`, fix the name before you start the agent; otherwise the agent starts in your whole home folder.
 
-![The VS Code terminal panel after moving into the folder am115-agent-demo, with the command claude typed at the prompt.](images/vscode-05-start-claude.png)
+![The VS Code terminal panel in the folder am115-agent-demo, with the command claude typed at the prompt.](images/vscode-08-start-claude.png)
 
-You do not need to activate an environment first. The terminal already uses the course Python.
+Signing in from a terminal follows [step 3 of the quickstart](README.md#3-sign-in-to-the-agent-first-time-only), with one difference for Claude Code. After you choose the login method, VS Code shows a pop-up: **Do you want code-server to open the external website?** Click **Cancel**, and use the link that Claude Code prints in the terminal instead. (The pop-up's link is a different one, and we have not seen it complete a sign-in.)
 
-## Sign in (first time only)
-
-Signing in follows the same steps as in [the quickstart](README.md#5-sign-in-first-time-only), with one difference for Claude Code. After you choose the login method, VS Code shows a pop-up: **Do you want code-server to open the external website?** Click **Cancel**, and use the link that Claude Code prints in the terminal instead. (The pop-up's link is a different one, and we have not seen it complete a sign-in.)
-
-![The pop-up Do you want code-server to open the external website? with its Cancel button boxed.](images/vscode-06-cancel-popup.png)
+![The pop-up Do you want code-server to open the external website? with its Cancel button boxed.](images/vscode-09-cancel-popup.png)
 
 To open the terminal's link, press **c** to copy it, and paste it into a new browser tab. Sign in; the page should then show a code. Copy the code, paste it into the terminal, and press **Enter**.
 
 For Codex, choose **2. Sign in with Device Code** as in the quickstart.
 
-## Other agent buttons
-
-VS Code in this session also shows a Claude Code icon and a Codex icon at the top right of the editor, and a chat panel on the right. These are the agents' editor extensions. This guide does not cover them; the terminal method above is the one we tested.
-
 ## Stopping
 
-Close the browser tab, then **Cancel** the session on **My Interactive Sessions**, as in [step 7 of the quickstart](README.md#7-stop-the-session-when-you-finish).
+Close the browser tab, then **Cancel** the session on **My Interactive Sessions**, as in [step 5 of the quickstart](README.md#5-stop-the-session-when-you-finish).

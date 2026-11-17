@@ -14,7 +14,7 @@ Find the message or situation you see, then follow the steps under it.
 
 **Ctrl+C does not leave the sign-in screen.** Close the terminal instead. In JupyterLab, close the terminal's tab, then open the **Running Terminals and Kernels** panel (the circle with a square inside, in the left bar) and shut the terminal down. In VS Code, click the trash-can icon on the terminal panel.
 
-**VS Code asks "Do you want code-server to open the external website?"** Click **Cancel**, then open the link that Claude Code printed in the terminal. See [Using VS Code](vscode.md#sign-in-first-time-only).
+**VS Code asks "Do you want code-server to open the external website?"** Click **Cancel**, then open the link that Claude Code printed in the terminal. See [Using VS Code](vscode.md#run-an-agent-in-a-terminal-instead).
 
 **Clicking the sign-in link does nothing.** Press **c** while Claude Code shows the link to copy it, then paste it into a new browser tab. If that does not copy anything, hold **Shift**, select the whole link with the mouse, and copy it with **Ctrl+C** (**Cmd+C** on a Mac).
 

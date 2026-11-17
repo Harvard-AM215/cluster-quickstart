@@ -2,7 +2,7 @@
 
 **Academic Shell Access** opens a terminal in your browser on the cluster's **login node**: the shared computer you connect to first. Use it for small jobs: moving files, Git, and the scheduler commands in the [advanced pages](advanced/interactive-shell.md). Do not run an agent, a simulation or a package installation on the login node itself, because every other student shares it. Ask the scheduler for a compute node first, as shown below.
 
-If you just want an agent, the [JupyterLab quickstart](README.md) is shorter.
+[Back to the quickstart](README.md)
 
 ## Open the shell
 
@@ -29,7 +29,7 @@ cd ~/your-project-folder
 
 Replace `your-project-folder` with your folder's name. If you do not have a project folder yet, make one first with `mkdir ~/am115-project` and use that name. If `cd` prints `No such file or directory`, fix the name before you start the agent; otherwise the agent starts in your whole home folder.
 
-Use `~/172566/course-env codex` for Codex. The first time, the agent asks you to sign in; follow [step 5 of the quickstart](README.md#5-sign-in-first-time-only). Running `~/172566/course-env` on its own gives you a shell with the course Python, `uv`, `claude` and `codex` all available.
+Use `~/172566/course-env codex` for Codex. The first time, the agent asks you to sign in; continue with [step 3 of the quickstart](README.md#3-sign-in-to-the-agent-first-time-only). Running `~/172566/course-env` on its own gives you a shell with the course Python, `uv`, `claude` and `codex` all available.
 
 ![Claude Code started from Academic Shell Access on an account that had already signed in, showing its version and the project folder.](images/shell-02-claude-ready.png)
 

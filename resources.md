@@ -11,7 +11,7 @@ You do not choose memory. The sessions we started had 4 GB, with either 1 or 2 C
 
 The agent runs inside your session. It shares your CPUs and memory with everything else you run there, and it cannot reach more than the session has.
 
-When you finish early, cancel the session ([step 7 of the quickstart](README.md#7-stop-the-session-when-you-finish)), so the CPUs go back to other students.
+When you finish early, cancel the session ([step 5 of the quickstart](README.md#5-stop-the-session-when-you-finish)), so the CPUs go back to other students.
 
 If your session stays in **Starting** for a long time, the cluster may be busy; asking for fewer CPUs may help it start sooner. See [Troubleshooting](troubleshooting.md#starting-a-session).
 
