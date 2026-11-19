@@ -67,7 +67,7 @@ git clone https://github.com/OWNER/REPOSITORY.git
 
 Git asks for **Username**: type your GitHub username. It then asks for **Password**: paste the token and press **Enter**. Nothing appears while you paste; that is normal. Git saves the token in `~/.git-credentials`, so later pushes and pulls in any session do not ask again. Anyone who can read that file can use the token, so never share it, and delete the token on GitHub when the term ends.
 
-If you already cloned with an SSH address, switch the repository to HTTPS from inside its folder:
+A repository uploaded from your laptop keeps your laptop's remote address, and that address may be an SSH one. Check with `git remote -v` inside the folder; if the address starts with `git@`, switch it to HTTPS:
 
 ```bash
 cd ~/REPOSITORY
