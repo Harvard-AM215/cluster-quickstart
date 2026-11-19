@@ -21,7 +21,7 @@ Go to **<https://ood.huit.harvard.edu>** and sign in with your HarvardKey.
 There are three ways in. All three run on the same cluster, see the same home folder, and have the same course Python and agents, so you can switch between them later. Pick the one that matches how you like to work, follow its page until the agent is running, and then come back here for step 3.
 
 - **[JupyterLab](jupyter.md)**: the notebook environment. Its Launcher has a **Claude Code** tile and a **Codex** tile that start an agent in the folder you pick. Choose this if you mostly work in notebooks.
-- **[VS Code](vscode.md)**: the code editor, in your browser. Claude Code is built in as a panel: you click the Claude icon and type your request in a chat box. Choose this if you mostly edit `.py` files. Its Source Control panel commits and pushes to GitHub over HTTPS; Git with an SSH key does not work there (see [Getting your files onto the cluster](git.md)).
+- **[VS Code](vscode.md)**: the code editor, in your browser. Claude Code is built in as a panel: you click the Claude icon and type your request in a chat box. Choose this if you mostly edit `.py` files. Its Source Control panel commits and pushes to GitHub over HTTPS (see [Getting your files onto the cluster](git.md)).
 - **[Academic Shell Access](terminal.md)**: a plain terminal. You ask for a compute node yourself with one command, then start the agent from the command line. Choose this if you are comfortable with a terminal.
 
 ## 3. Sign in to the agent (first time only)

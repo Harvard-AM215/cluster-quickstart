@@ -33,55 +33,54 @@ cd ~
 git clone https://github.com/OWNER/REPOSITORY.git
 ```
 
-This works without signing in. Pushing changes back needs a sign-in. In VS Code, the Source Control panel signs you in for you; see [Committing and pushing in VS Code](#committing-and-pushing-in-vs-code). Anywhere else, set up an SSH key (next section), then point your HTTPS clone at the SSH address, from inside the repository folder:
+This works without signing in. Pushing changes back, or cloning a private repository, needs a sign-in; the next section sets one up.
+
+## A private repository, or pushing changes: an access token
+
+The cluster blocks outgoing SSH connections, so Git over SSH (addresses that start with `git@github.com:`) fails with `ssh: connect to host github.com port 22: Connection timed out`. Use the HTTPS address with a **personal access token**, a password that GitHub makes for you and that works only for the repositories you choose.
+
+In VS Code, the Source Control panel signs you in without a token; see [Committing and pushing in VS Code](#committing-and-pushing-in-vs-code). The steps below are for a JupyterLab terminal or Academic Shell Access.
+
+Make the token on GitHub, in your laptop's browser:
+
+1. Open **Settings** from your profile picture's menu, then **Developer settings** at the bottom of the left column.
+2. Choose **Personal access tokens → Fine-grained tokens** and click **Generate new token**.
+3. Give it a name such as `am115-cluster` and an expiration date after the end of the term.
+4. Under **Repository access**, choose **Only select repositories** and pick your project repository.
+5. Under **Permissions**, find **Contents** and set it to **Read and write**.
+6. Click **Generate token** and copy the token it shows. GitHub shows it only once.
+
+If your repository belongs to the course organization or to a teammate and does not appear in the list in step 4, ask the owner to add you as a collaborator first, or use a **classic** token with the `repo` scope instead.
+
+Tell Git to remember the token, once, in a cluster terminal:
 
 ```bash
-cd ~/REPOSITORY
-git remote set-url origin git@github.com:OWNER/REPOSITORY.git
+git config --global credential.helper store
 ```
 
-## A private repository, or pushing changes: an SSH key
-
-An **SSH key** is a pair of files that lets GitHub recognize your cluster account. The **private key** stays on the cluster and must never be shared or copied anywhere. The **public key** is the half you give to GitHub.
-
-Do these steps in a **JupyterLab terminal** or in **Academic Shell Access**. The VS Code session does not have the `ssh` program, so Git over SSH fails there with `cannot run ssh: No such file or directory`.
-
-Make a new key in a dedicated folder. The browser sessions replace the usual key folder, `~/.ssh`, with a fresh empty one each time, so a key stored there would not be found in your next session; `~/.config/git-key` is kept.
-
-```bash
-mkdir -p ~/.config/git-key
-chmod 700 ~/.config/git-key
-ssh-keygen -t ed25519 -f ~/.config/git-key/id_ed25519
-```
-
-`ssh-keygen` asks for a passphrase, a password that protects the key; you can press **Enter** twice for none. If it instead says the file already exists and asks **Overwrite (y/n)?**, answer **n**: you made a key earlier, and overwriting it would disconnect it from GitHub. Use the key you have and continue below.
-
-Print the public key and copy the whole line it shows:
-
-```bash
-cat ~/.config/git-key/id_ed25519.pub
-```
-
-On GitHub, open **Settings** from your profile picture's menu, choose **SSH and GPG keys** in the left column, and click **New SSH key**. Paste the line into the **Key** box and click **Add SSH key**. Only ever paste the file ending in `.pub`.
-
-Tell Git to use this key. You only do this once; it is remembered for every session:
-
-```bash
-git config --global core.sshCommand "ssh -i $HOME/.config/git-key/id_ed25519"
-```
-
-Now clone with the repository's SSH address (it starts with `git@github.com:`):
+Clone with the HTTPS address:
 
 ```bash
 cd ~
-git clone git@github.com:OWNER/REPOSITORY.git
+git clone https://github.com/OWNER/REPOSITORY.git
 ```
 
-The first time, Git asks whether to trust GitHub's host key. Check the fingerprint it shows against [GitHub's published fingerprints](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints) and answer **yes** if they match.
+Git asks for **Username**: type your GitHub username. It then asks for **Password**: paste the token and press **Enter**. Nothing appears while you paste; that is normal. Git saves the token in `~/.git-credentials`, so later pushes and pulls in any session do not ask again. Anyone who can read that file can use the token, so never share it, and delete the token on GitHub when the term ends.
+
+If you already cloned with an SSH address, switch the repository to HTTPS from inside its folder:
+
+```bash
+cd ~/REPOSITORY
+git remote set-url origin https://github.com/OWNER/REPOSITORY.git
+```
+
+For a repository on code.harvard.edu, make the token the same way on code.harvard.edu and use its `https://code.harvard.edu/...` address.
+
+If Git says `Authentication failed`, the token is wrong, expired or lacks access to that repository. Make a new one, then remove the saved copy with `rm ~/.git-credentials` and push again.
 
 ## Committing and pushing in VS Code
 
-VS Code cannot use an SSH key, but its **Source Control** panel (the icon of three connected circles in the left bar) can commit and push over HTTPS, with its own GitHub sign-in.
+VS Code's **Source Control** panel (the icon of three connected circles in the left bar) can commit and push over HTTPS, with its own GitHub sign-in.
 
 1. Open your project folder in VS Code and click the Source Control icon.
 2. If the folder is not a Git repository yet, click **Initialize Repository**.

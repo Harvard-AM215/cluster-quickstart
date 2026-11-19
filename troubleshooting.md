@@ -24,7 +24,7 @@ Find the message or situation you see, then follow the steps under it.
 
 **`claude: command not found` (or `codex` or `uv`).** You are on the login node in Academic Shell Access. Follow [Working from a plain terminal](terminal.md): get a compute node with `srun`, then run `~/172566/course-env claude`.
 
-**`error: cannot run ssh: No such file or directory` from Git.** You are in a VS Code terminal, which has no `ssh` program. Either push over HTTPS from VS Code's Source Control panel, or run the Git command in a JupyterLab terminal or in Academic Shell Access; see [Getting your files onto the cluster](git.md).
+**`ssh: connect to host github.com port 22: Connection timed out`, or `error: cannot run ssh: No such file or directory`, from Git.** The repository uses an SSH address (`git@github.com:...`), and the cluster blocks outgoing SSH. Switch it to the HTTPS address and sign in with an access token; see [Getting your files onto the cluster](git.md#a-private-repository-or-pushing-changes-an-access-token).
 
 **`Make sure you configure your "user.name" and "user.email" in git.`** Git needs your name and email before its first commit. See [Tell Git who you are](git.md#tell-git-who-you-are-once).
 
